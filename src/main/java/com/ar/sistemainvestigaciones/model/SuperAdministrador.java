@@ -27,6 +27,6 @@ public class SuperAdministrador {
     @OneToOne
     @JoinColumn(name="usuarioId")
     private Usuario usuario;
-    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "superAdministrador", cascade = CascadeType.ALL)
     private List<ObservacionSuperAdministrador> observaciones;
 }

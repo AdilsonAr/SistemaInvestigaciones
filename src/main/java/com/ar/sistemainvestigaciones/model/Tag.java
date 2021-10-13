@@ -23,6 +23,6 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String tag;
-    @ManyToMany(mappedBy = "tags")
+    @ManyToMany
     private List<Investigacion> investigaciones;
 }

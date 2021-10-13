@@ -9,6 +9,8 @@ import com.ar.sistemainvestigaciones.model.Pais;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -16,13 +18,30 @@ import javax.persistence.Query;
  *
  * @author KGB
  */
-@Stateless
+@Stateless 
 public class Dao {
-    @PersistenceContext(unitName = "investigaciones_persistence_unit")
-    protected EntityManager entityManager;
+     
     public String helloWorld(){
-         Query q = entityManager.createQuery("select c from Pais c");
-        List<Pais> result=q.getResultList();
-        return "Hello world..."+result.size();
+        EntityManagerFactory emf = null;
+        EntityManager entityManager = null;
+        try {
+            emf = Persistence.createEntityManagerFactory("investigaciones_persistence_unit");
+            entityManager = emf.createEntityManager();
+            
+            Query q = entityManager.createQuery("select s from Pais s");
+            List<Pais> resultList = q.getResultList();
+            return "paises: "+resultList.size();
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if(entityManager!=null && emf!=null){
+                entityManager.close();
+                emf.close();
+            }
+            
+        }
+        return null;
+        
     }
+    
 }

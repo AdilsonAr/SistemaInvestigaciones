@@ -38,7 +38,7 @@ public class Investigacion {
     @OneToMany(mappedBy = "investigacion", cascade = CascadeType.ALL)
     private List<ObservacionSuperAdministrador> observacionSuperAdministrador;
     @ManyToMany
-    @JoinTable(name = "investigacion-tag", joinColumns = @JoinColumn(name="investigacionId"),
+    @JoinTable(name = "investigacionTag", joinColumns = @JoinColumn(name="investigacionId"),
             inverseJoinColumns = @JoinColumn(name="tagId"))
     private List<Tag> tags;
     @ManyToOne
