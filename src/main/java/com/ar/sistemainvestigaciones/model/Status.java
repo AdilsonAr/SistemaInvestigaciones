@@ -26,4 +26,38 @@ public class Status {
     private String status;
     @OneToMany(mappedBy = "status", cascade = CascadeType.ALL)
     private List<Investigacion> investigaciones;
+
+    public Status() {
+    }
+
+    public Status(int id, String status, List<Investigacion> investigaciones) {
+        this.id = id;
+        this.status = status;
+        this.investigaciones = investigaciones;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Investigacion> getInvestigaciones() {
+        return investigaciones;
+    }
+
+    public void setInvestigaciones(List<Investigacion> investigaciones) {
+        this.investigaciones = investigaciones;
+    }
+    
 }

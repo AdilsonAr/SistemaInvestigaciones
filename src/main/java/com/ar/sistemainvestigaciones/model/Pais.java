@@ -25,4 +25,38 @@ public class Pais {
     private String nombre;
     @OneToMany(mappedBy = "pais", cascade = CascadeType.ALL)
     private List<Usuario> usuarios;
+
+    public Pais() {
+    }
+
+    public Pais(int id, String nombre, List<Usuario> usuarios) {
+        this.id = id;
+        this.nombre = nombre;
+        this.usuarios = usuarios;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
 }
